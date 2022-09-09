@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from "react";
 
 function App() {
+
+    const fetchUsers = () => {
+        // Where we're fetching data from
+        return fetch("https://localhost:44338/WeatherForecast")
+            // We get the API response and receive data in JSON format
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.error(error));
+    }
+
   return (
     <div className="App">
       <header className="App-header">
