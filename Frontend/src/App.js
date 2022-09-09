@@ -4,13 +4,16 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [apiResponse, setApiResponse] = useState("placeholder");
+  const [visibleText, setVisisbleText] = useState("placeholder");
   useEffect(() => {
     ApiCall()
   }, []);
 
   useEffect(() => {
-    console.log(apiResponse);
+    console.log(apiResponse[0].summary);
+    setVisisbleText(apiResponse[0].summary)
   }, [apiResponse]);
+
 
   const ApiCall = async () => {
     try {
@@ -28,7 +31,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          test
+          {visibleText}
         </p>
       </header>
     </div>

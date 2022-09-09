@@ -13,7 +13,7 @@ namespace IPS_Backend.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Vibing"
+            "Vibing", "Schmoving", "Bin chilling", "Copeing"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
