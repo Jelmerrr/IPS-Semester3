@@ -1,33 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
+  const [apiResponse, setApiResponse] = useState("placeholder");
+  useEffect(() => {
+    ApiCall()
+  }, []);
 
-    const fetchUsers = () => {
-        // Where we're fetching data from
-        return fetch("https://localhost:44338/WeatherForecast")
-            // We get the API response and receive data in JSON format
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((error) => console.error(error));
+  useEffect(() => {
+    console.log(apiResponse);
+  }, [apiResponse]);
+
+  const ApiCall = async () => {
+    try {
+      let resp = await fetch('https://localhost:44338/WeatherForecast')
+      let respJson = await resp.json()
+      setApiResponse(respJson)
     }
+    catch (e) {
+      console.log(e);
+    }
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          test
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
