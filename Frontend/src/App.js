@@ -17,7 +17,7 @@ function App() {
 
   const ApiCall = async () => {
     try {
-      let resp = await fetch('https://localhost:44338/WeatherForecast')
+      let resp = await fetch('https://localhost:44379/WeatherForecast')
       let respJson = await resp.json()
       setApiResponse(respJson)
     }
