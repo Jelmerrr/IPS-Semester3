@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Server_Backend.Hubs;
 
 namespace Server_Backend
 {
@@ -32,6 +33,7 @@ namespace Server_Backend
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Server_Backend", Version = "v1" });
             });
+            services.AddSignalR();
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
@@ -65,6 +67,7 @@ namespace Server_Backend
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<CommunicationHub>("/SendDataHub");
             });
         }
     }
