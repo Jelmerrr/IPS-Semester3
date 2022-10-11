@@ -15,14 +15,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(apiResponse[0].summary);
-    setVisisbleText(apiResponse[0].summary)
+    console.log(apiResponse.Response);
+    setVisisbleText(apiResponse.Response)
   }, [apiResponse]);
 
 
   const ApiCall = async () => {
     try {
-      let resp = await fetch('https://localhost:44338/WeatherForecast')
+      let resp = await fetch('https://localhost:44338/User/checkCommunication')
+      console.log(resp);
       let respJson = await resp.json()
       setApiResponse(respJson)
     }
