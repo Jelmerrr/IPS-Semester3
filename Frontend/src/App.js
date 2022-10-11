@@ -1,14 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
+import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 function App() {
   const [apiResponse, setApiResponse] = useState("placeholder");
   const [visibleText, setVisisbleText] = useState("placeholder");
+  const [dataText, setdataText] = useState("placeholder");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   useEffect(() => {
     ApiCall()
+    GetData()
   }, []);
 
   useEffect(() => {
@@ -48,12 +51,39 @@ function App() {
     }
   }
 
+  const GetData = async () => {
+    try {
+      const connection = new HubConnectionBuilder()
+        .withUrl("https://localhost:44379/SendDataHub")
+        .withAutomaticReconnect()
+        .configureLogging(LogLevel.Information)
+        .build();
+
+      connection.on("SendMethod", (a) => {
+        console.log(a)
+        updateText(a)
+      });
+
+      await connection.start();
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
+  const updateText = (newText) => {
+    setdataText(newText);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           {visibleText}
+        </p>
+        <p>
+          {dataText}
         </p>
         <form onSubmit={handleSubmit}>
           <label>
