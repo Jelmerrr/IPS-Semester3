@@ -13,7 +13,7 @@ namespace IPS_Backend.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Vibing", "Schmoving", "Bin chilling", "Copeing"
+            "Response 1", "Response 2", "Response 3"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
