@@ -26,6 +26,7 @@ namespace IPS_Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
@@ -47,6 +48,8 @@ namespace IPS_Backend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseHttpsRedirection();
+
             app.UseCors();
 
             if (env.IsDevelopment())
@@ -56,11 +59,8 @@ namespace IPS_Backend
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "IPS_Backend v1"));
             }
 
-            app.UseHttpsRedirection();
 
             app.UseRouting();
-
-           
 
             app.UseAuthorization();
 

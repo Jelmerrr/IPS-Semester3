@@ -5,8 +5,8 @@ import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 function App() {
   const [apiResponse, setApiResponse] = useState("placeholder");
-  const [visibleText, setVisisbleText] = useState("placeholder");
-  const [dataText, setdataText] = useState("placeholder");
+  const [visibleText, setVisisbleText] = useState("Test");
+  const [dataText, setdataText] = useState("Test");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   useEffect(() => {
