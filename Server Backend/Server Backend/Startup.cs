@@ -28,6 +28,7 @@ namespace Server_Backend
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -55,6 +56,8 @@ namespace Server_Backend
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Server_Backend v1"));
             }
+
+
 
             app.UseHttpsRedirection();
 
