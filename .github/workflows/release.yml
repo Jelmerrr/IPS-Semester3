@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: cd ./Frontend
+      -working-directory: ./Frontend
       - run: docker build . -t jelmerr/ips3-projectv2
 
       - name: Login to Docker Hub
