@@ -18,4 +18,4 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      -run: docker push jelmerr/ips3-projectv2
+      - run: docker push jelmerr/ips3-projectv2
