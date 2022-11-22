@@ -11,8 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Server_Backend.Hubs;
 
-namespace IPS_Backend
+namespace Server_Backend
 {
     public class Startup
     {
@@ -27,11 +28,13 @@ namespace IPS_Backend
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "IPS_Backend", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Server_Backend", Version = "v1" });
             });
+            services.AddSignalR();
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
@@ -51,8 +54,10 @@ namespace IPS_Backend
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "IPS_Backend v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Server_Backend v1"));
             }
+
+
 
             app.UseHttpsRedirection();
 
@@ -65,6 +70,7 @@ namespace IPS_Backend
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<CommunicationHub>("/SendDataHub");
             });
         }
     }
