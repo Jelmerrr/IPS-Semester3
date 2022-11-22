@@ -23,7 +23,5 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: './Frontend/Dockerfile'
           push: true
           tags: jelmerr/ips3-projectv2:latest
