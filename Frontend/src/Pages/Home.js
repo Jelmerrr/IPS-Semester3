@@ -55,7 +55,7 @@ function Home() {
     const GetData = async () => {
         try {
             const connection = new HubConnectionBuilder()
-                .withUrl("https://localhost:44379/SendDataHub")
+                .withUrl("https://localhost:44337/SendDataHub")
                 .withAutomaticReconnect()
                 .configureLogging(LogLevel.Information)
                 .build();

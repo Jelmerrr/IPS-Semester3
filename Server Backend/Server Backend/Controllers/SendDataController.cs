@@ -17,7 +17,7 @@ namespace Server_Backend.Controllers
             if (_connection == null || _connection.State == HubConnectionState.Disconnected)
             {
                 _connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:44379/SendDataHub")
+                .WithUrl("https://localhost:44337/SendDataHub")
                 .Build();
                 _connection.StartAsync();
                 _connection.On<String>("SendMethod", a =>

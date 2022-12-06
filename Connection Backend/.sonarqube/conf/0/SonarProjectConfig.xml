@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SonarProjectConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/analyzer/2021/1">
+  <AnalysisConfigPath>D:\S3.2\IPS\Project\IPS-Semester3\Connection Backend\.sonarqube\conf\SonarQubeAnalysisConfig.xml</AnalysisConfigPath>
+  <ProjectPath>D:\S3.2\IPS\Project\IPS-Semester3\Connection Backend\IPS-Backend\IPS-Backend.csproj</ProjectPath>
+  <FilesToAnalyzePath>D:\S3.2\IPS\Project\IPS-Semester3\Connection Backend\.sonarqube\conf\0\FilesToAnalyze.txt</FilesToAnalyzePath>
+  <OutPath>D:\S3.2\IPS\Project\IPS-Semester3\Connection Backend\.sonarqube\out\0</OutPath>
+  <ProjectType>Product</ProjectType>
+  <TargetFramework>net5.0</TargetFramework>
+</SonarProjectConfig>
