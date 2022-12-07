@@ -2,16 +2,17 @@ name: Test
 
 on: [push]
 
+  
 jobs:
-  build:
-
+  Tests:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    
-    - name: Setup Jest
-      run: npm install -g jest
+      - uses: actions/checkout@v2
       
-    - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.3
+      - name: Install modules
+        run: npm install
+
+      - name: Run Frontend tests
+        working-directory: ./Frontend
+        run: npm test -u
