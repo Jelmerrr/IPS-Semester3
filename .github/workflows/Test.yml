@@ -9,5 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    
+    - name: Setup Jest
+      run: npm install -g jest
+      
     - name: Run Jest
       uses: stefanoeb/jest-action@1.0.3
