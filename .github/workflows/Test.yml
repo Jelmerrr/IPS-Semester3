@@ -12,11 +12,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
             node-version: 16
-            cache: yarn
+            cache: npm
       
       - name: Install modules
-        run: yarn
+        run: npm install
 
       - name: Run Frontend tests
         working-directory: ./Frontend
-        run: yarn test -- -u
+        run: npm test -- -u
