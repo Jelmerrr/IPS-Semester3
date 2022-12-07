@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     
     defaults:
-        steps:
+        run:
             working-directory: ./Frontend
 
     steps:
