@@ -1,11 +1,14 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+const ProfileName = "Hoi";
 
 function Profile() {
     return (
-        <h1>Profile page</h1>
+        <div>
+            <h1>Profile page</h1>
+            <h1>{ProfileName}</h1>
+        </div>
     );
 }
-
 export default Profile;
