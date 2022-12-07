@@ -14,8 +14,8 @@ jobs:
             node-version: 16
       
       - name: Install modules
-        run: npm install
+        run: yarn
 
       - name: Run Frontend tests
         working-directory: ./Frontend
-        run: npm test -u
+        run: yarn test -- -u
