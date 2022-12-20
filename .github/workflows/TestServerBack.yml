@@ -2,17 +2,17 @@ name: TestServerBack
 
 on: [push]
 
+
 jobs:
   build:
-
-  defaults:
-        run:
-            working-directory: ./Server Backend
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
         dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
+
+  defaults:
+        run:
+            working-directory: ./Server Backend
 
     steps:
       - uses: actions/checkout@v3
