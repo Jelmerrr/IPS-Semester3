@@ -4,10 +4,10 @@ on: [push]
 
 
 jobs:
-  build:
+  TestServerBack:
     runs-on: ubuntu-latest
 
-  defaults:
+    defaults:
         run:
             working-directory: ./Server Backend
 
