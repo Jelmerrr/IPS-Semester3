@@ -27,6 +27,14 @@ namespace Server_Backend.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("checkCommunication")]
+        public IActionResult CheckCommunication()
+        {
+            System.Diagnostics.Debug.WriteLine('a');
+            return Content("{ \"Response\":\"Hello World! test\"}", "application/json");
+        }
+
         [HttpPost]
         [Route("api/[controller]/sendString/{textInput}")]
         public async Task<IActionResult> sendString(string textInput)

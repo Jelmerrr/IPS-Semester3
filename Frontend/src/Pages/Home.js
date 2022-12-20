@@ -22,7 +22,7 @@ function Home() {
 
     const ApiCall = async () => {
         try {
-            let resp = await fetch('https://localhost:44338/User/checkCommunication')
+            let resp = await fetch('https://localhost:44338/Communication/checkCommunication')
             console.log(resp);
             let respJson = await resp.json()
             setApiResponse(respJson)

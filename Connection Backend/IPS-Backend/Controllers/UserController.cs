@@ -14,35 +14,48 @@ namespace IPS_Backend.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        [HttpGet]
-        [Route("checkCommunication")]
-        public IActionResult CheckCommunication()
-        {
-            return Content("{ \"Response\":\"Hello World!\"}", "application/json");
-        }
-            
         [HttpPost]
-        [Route("createUser/{userName}/{userPass}")]
+        [Route("{userName}/{userPass}")]
         public IActionResult CreateUser(string userName, string userPass)
         {
             DAL.UserDAL userDAL = new DAL.UserDAL();
             userDAL.CreateUser(userName, userPass);
             return Ok();
         }
+
+        [HttpGet]
+        [Route("{userName}/{userPass}")]
+        public IActionResult Login(string userName, string userPass)
+        {
+            DAL.UserDAL userDAL = new DAL.UserDAL();
+            var users = userDAL.GetUsers();
+            
+            foreach(var item in users)
+            {
+                if (item.userName == userName && item.userPass == userPass)
+                {
+                    var result = item;
+                    return Ok(result);
+                }
+            }
+            return Ok("Wrong credentials!");
+        }
+
         [HttpPost]
-        [Route("sendText/{textInput}")]
-        public async Task<IActionResult> SendText(string textInput)
+        [Route("attack/{boardState}")]
+        public async Task<IActionResult> SendAttackRequest(string boardState)
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage()
             {
-                RequestUri = new Uri("https://localhost:44379/api/SendData/sendString/"+textInput),
+                RequestUri = new Uri("https://localhost:44337/api/Attack/StartAttack/1/2"),
                 Method = HttpMethod.Post,
-                Content = new StringContent(textInput)
+                Content = new StringContent(boardState)
             };
             var response = await client.SendAsync(request);
-            
+
             return Ok(response);
         }
+        }
     }
-}
+
