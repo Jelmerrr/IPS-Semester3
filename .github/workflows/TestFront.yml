@@ -1,10 +1,10 @@
-name: Test
+name: TestFront
 
 on: [push]
 
   
 jobs:
-  Tests:
+  TestFront:
     runs-on: ubuntu-latest
     
     defaults:
