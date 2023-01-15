@@ -1,12 +1,12 @@
-import logo from '../Assets/logo.svg';
+
 import '../Styles/App.css';
 import React, { useState, useEffect } from "react";
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 function Home() {
     const [apiResponse, setApiResponse] = useState("placeholder");
-    const [visibleText, setVisisbleText] = useState("Test");
-    const [dataText, setdataText] = useState("Test");
+    const [visibleText, setVisisbleText] = useState("Welcome, please log in.");
+    const [dataText, setdataText] = useState("Welcome, please log in.");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     useEffect(() => {
@@ -79,11 +79,10 @@ function Home() {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
+                <p className="text-center fs-1">
                     {visibleText}
                 </p>
-                <p>
+                <p className="text-center fs-1">
                     {dataText}
                 </p>
                 <form onSubmit={handleSubmit}>
